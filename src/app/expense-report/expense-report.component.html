@@ -1,0 +1,26 @@
+<div class="report">
+    <table class="table table-bordered table-dark">
+        <thead>
+            <tr>
+                <th>Person Who Needs to Pay</th>
+                <th>Transaction (Receiver => Amount)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor=" let calcRes of calcReportResult">
+                <td>{{calcRes.name}}</td>
+                <td>
+                    <div class="receiver-amount" *ngFor=" let obj of calcRes.transaction ">
+                        <div>
+                            {{obj.name}}
+                        </div>
+                        <div>
+                            {{obj.amount.toFixed(2)}}                        
+                            </div>
+
+                </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

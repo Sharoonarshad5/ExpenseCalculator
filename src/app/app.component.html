@@ -1,0 +1,15 @@
+<div class="main-container">
+  <div class="expense-row">
+    <h3 class="title">Expense Calculator</h3>
+
+    <app-expense-form (expenseResult)="calcResult = $event"(hideTable)="istableHidden =$event" (sameAmount)="SameAmount =$event"></app-expense-form>
+
+    <app-expense-report *ngIf="!istableHidden && calcResult.length" [calcReportResult] ="calcResult"></app-expense-report>
+
+    <ng-container *ngIf="SameAmount">
+      <h3 class="title" style="text-align: center">
+        No one Spented Extra Amount
+      </h3>
+    </ng-container>
+  </div>
+</div>

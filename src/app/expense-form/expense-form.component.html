@@ -1,0 +1,42 @@
+<div [formGroup]="expenseForm">
+
+    <ng-container formArrayName="transaction">
+        <div class="form-container">
+            <ng-container *ngFor="let xepeenseformCtrl of transaction.controls; let i = index">
+            <div class="form"[formGroupName]="i">
+
+                <div class="app-form-controls">
+                    <label for="name">Name</label>
+                    <input type="text"formControlName="name">
+                </div>
+
+                <div class="app-form-controls">
+                    <label for="name">Items</label>
+                    <input type="text"formControlName="item">
+                </div>
+
+                <div class="app-form-controls">
+                    <label for="name">Total Amount</label>
+                    <input type="text"formControlName="amount">
+                </div>
+
+                <div class="form-btn_remove">
+                    <button type="button" (click)="onRemove(i)">X</button>
+                </div>
+                
+            </div>
+        </ng-container>
+
+            <div class="form-buttons">
+                <button type="button" class="add" (click)="onAdd()">
+                    ADD
+                </button>
+
+                <button type="button"class="calculate" (click)="onSubmit()"[disabled]=" expenseForm.invalid || transaction.controls.length < 2">
+                    Calculate
+                </button>
+
+            </div>
+        </div>
+    </ng-container>
+</div>
